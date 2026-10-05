@@ -51,4 +51,6 @@ jobs:
                 echo "Build Job started"
                 npm run build
                 echo "Build Job completed"
+            - name: Deploy Code
+              run: echo "Deploying code..."
 
