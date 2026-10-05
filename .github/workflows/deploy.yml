@@ -1,0 +1,30 @@
+name: deploy workflow
+on: [push, workflow_dispatch]
+jobs:
+    Lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Lint
+              run: | 
+                echo "Lint Job started"
+                npm lint
+                echo "Lint Job completed"
+    Test:
+        needs: Lint
+        runs-on: ubuntu-latest
+        steps:
+            - name: Test
+              run: | 
+                echo "Test Job Started"
+                npm test
+                echo "Test Job completed"
+    Deploy:
+        needs: Test
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy
+              run: |
+                echo "Deploy Job started"
+                npm deploy
+                echo "Deploy Job completed"
+
