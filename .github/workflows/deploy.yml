@@ -32,7 +32,7 @@ jobs:
             - name: Test
               run: | 
                 echo "Test Job Started"
-                npm test
+                npm run test
                 echo "Test Job completed"
     Deploy:
         needs: Test
@@ -46,9 +46,9 @@ jobs:
                 node-version: 18
             - name: install dependencies
               run: npm ci
-            - name: Deploy
+            - name: Build
               run: |
-                echo "Deploy Job started"
-                npm deploy
-                echo "Deploy Job completed"
+                echo "Build Job started"
+                npm run build
+                echo "Build Job completed"
 
