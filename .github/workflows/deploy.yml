@@ -15,7 +15,7 @@ jobs:
             - name: Lint
               run: | 
                 echo "Lint Job started"
-                npm lint
+                npm run lint
                 echo "Lint Job completed"
     Test:
         needs: Lint
