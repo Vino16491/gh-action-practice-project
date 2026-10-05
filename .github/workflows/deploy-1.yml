@@ -1,0 +1,32 @@
+name: deploy workflow
+on: [push, workflow_dispatch]
+jobs:
+    Lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get code
+              uses: actions/checkout@v7
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: install dependencies
+              run: npm ci
+            - name: Lint
+              run: | 
+                echo "Lint Job started"
+                npm run lint
+                echo "Lint Job completed"
+            - name: Test
+              run: | 
+                echo "Test Job Started"
+                npm run test
+                echo "Test Job completed"
+            - name: Build
+              run: |
+                echo "Build Job started"
+                npm run build
+                echo "Build Job completed"
+            - name: Deploy Code
+              run: echo "Deploying code..."
+
