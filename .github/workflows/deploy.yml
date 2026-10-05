@@ -4,6 +4,14 @@ jobs:
     Lint:
         runs-on: ubuntu-latest
         steps:
+            - name: Get code
+              uses: actions/checkout@v7
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: install dependencies
+              run: npm ci
             - name: Lint
               run: | 
                 echo "Lint Job started"
@@ -13,6 +21,14 @@ jobs:
         needs: Lint
         runs-on: ubuntu-latest
         steps:
+            - name: Get code
+              uses: actions/checkout@v7
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: install dependencies
+              run: npm ci
             - name: Test
               run: | 
                 echo "Test Job Started"
@@ -22,6 +38,14 @@ jobs:
         needs: Test
         runs-on: ubuntu-latest
         steps:
+            - name: Get code
+              uses: actions/checkout@v7
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: install dependencies
+              run: npm ci
             - name: Deploy
               run: |
                 echo "Deploy Job started"
