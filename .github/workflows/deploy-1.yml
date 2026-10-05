@@ -1,4 +1,4 @@
-name: deploy workflow
+name: deploy workflow with one Job
 on: [push, workflow_dispatch]
 jobs:
     Lint:
